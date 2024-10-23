@@ -9,7 +9,7 @@ class Post with _$Post {
     required int userId,
     required int id,
     required String title,
-    required String body,
+    required String body
   }) = _Post;
 
   factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);

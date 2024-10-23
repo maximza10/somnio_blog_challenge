@@ -7,7 +7,6 @@ import '../../services/post_service.dart';
 
 final dio = DioClient.createDio();
 
-// Crea el servicio y repositorio para las publicaciones
 final postService = PostService(dio);
 final postRepository = PostRepository(postService);
 
@@ -20,7 +19,8 @@ class HomePage extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Fixed TabBar Example"),
+          title: const Text("Blog Posts"),
+          backgroundColor: Colors.lightBlue,
         ),
         body: NestedScrollView(
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
@@ -29,8 +29,8 @@ class HomePage extends StatelessWidget {
                 delegate: SliverChildListDelegate(
                   [
                     const ListTile(
-                      title: Text('Title 1'),
-                      subtitle: Text('Subtitle 1'),
+                      title: Text('Blog'),
+                      subtitle: Text('Example subtitule'),
                     ),
                   ],
                 ),
@@ -38,7 +38,8 @@ class HomePage extends StatelessWidget {
               const SliverAppBar(
                 pinned: true,
                 floating: false,
-                toolbarHeight: 0, // Para ocultar la barra de herramientas
+                toolbarHeight: 0,
+                backgroundColor: Colors.white,
                 bottom: TabBar(
                   tabs: [
                     Tab(icon: Icon(Icons.list)),
@@ -51,7 +52,7 @@ class HomePage extends StatelessWidget {
           body: TabBarView(
             children: [
               PostListPage(postRepository: postRepository),
-              const Center(child: Text('Content of Tab 2')),
+              const Center(child: Text('Hello World!')),
             ],
           ),
         ),

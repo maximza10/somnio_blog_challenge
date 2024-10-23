@@ -16,7 +16,6 @@ class PostBloc extends Bloc<PostEvent, PostState> {
     if (event is LoadPosts) {
       emit(PostLoading());
       try {
-        // Llamada al repositorio para obtener las publicacionesv
         final posts = await postRepository.fetchPosts();
         emit(PostLoaded(posts: posts));
       } catch (e) {

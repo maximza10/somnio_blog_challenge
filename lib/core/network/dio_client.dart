@@ -7,8 +7,6 @@ class DioClient {
       connectTimeout: const Duration(milliseconds: 5000),
       receiveTimeout: const Duration(milliseconds: 3000),
     ));
-    
-    // Aquí puedes añadir interceptores, loggers, etc.
     return dio;
   }
 }

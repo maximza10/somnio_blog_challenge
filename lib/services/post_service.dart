@@ -7,7 +7,7 @@ class PostService {
   PostService(this._dio);
 
   Future<List<Post>> getPosts() async {
-    final response = await _dio.get('https://jsonplaceholder.typicode.com/posts');
+    final response = await _dio.get('/posts');
     List<Post> posts = (response.data as List).map((post) => Post.fromJson(post)).toList();
     return posts;
   }
